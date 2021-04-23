@@ -64,6 +64,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THi-D8-8s8">
                                                 <rect key="frame" x="69" y="266" width="92" height="40"/>
+                                                <color key="backgroundColor" red="0.16850385270000001" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="cJC-KN-OOz"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="fLd-PU-FuZ"/>
@@ -120,6 +121,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="THi-D8-8s8" id="9Pb-at-ou5"/>
                         <outlet property="loginTextField" destination="GEh-jC-5GK" id="Fre-Dn-Wu5"/>
                         <outlet property="passwordTextField" destination="oqu-YK-grl" id="2he-9x-gau"/>
                         <outlet property="scrollView" destination="t3G-Hg-o6J" id="90g-CC-ToJ"/>

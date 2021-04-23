@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
         if loginTextField.text == "1" && passwordTextField.text == "123" {
@@ -25,6 +26,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.layer.cornerRadius = 5
     }
     
     
