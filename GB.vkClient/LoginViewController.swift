@@ -14,19 +14,19 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    @IBAction func login(_ sender: Any) {
-        if loginTextField.text == "1" && passwordTextField.text == "123" {
-            print("login")
-        } else{
-            print("login error")
-            //loginTextField.text = ""
-            passwordTextField.text = ""
-        }
-    }
+//    @IBAction func login(_ sender: Any) {
+//        if loginTextField.text == "1" && passwordTextField.text == "123" {
+//            print("login")
+//        } else{
+//            print("login error")
+//            //loginTextField.text = ""
+//            passwordTextField.text = ""
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.layer.cornerRadius = 5
+        loginButton.layer.cornerRadius = 7
     }
     
     
@@ -77,6 +77,37 @@ class LoginViewController: UIViewController {
         // Устанавливаем отступ внизу UIScrollView, равный 0
         let contentInsets = UIEdgeInsets.zero
         scrollView?.contentInset = contentInsets
+    }
+    
+    
+    //в момент вызова сегью проверка по идентификатору необходимых условий
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        guard identifier == "LoginSegue" else {
+            return false
+        }
+                
+        let isLoginPasswordCorrect = loginTextField.text == "1" && passwordTextField.text == "123"
+        if isLoginPasswordCorrect {
+            return true
+        } else {
+            showErrorAlert()
+            }
+        return false
+    }
+    
+    private func showErrorAlert(){
+        //passwordTextField.text = ""
+        // Создаем контроллер
+        let alert = UIAlertController(title: "Ошибка", message: "Введены неверные данные пользователя", preferredStyle: .alert)
+        // Создаем кнопку для UIAlertController
+        //через замыкание чистим некорректно введенный пароль
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: { [weak self] _ in self?.passwordTextField.text=""}
+        )
+        // Добавляем кнопку на UIAlertController
+        alert.addAction(action)
+        // Показываем UIAlertController
+        present(alert, animated: true, completion: nil)
     }
 
 }
